@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Отслеживание грузов</title>
+    <link rel="stylesheet" href="scss/styles.scss" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Отслеживание грузов</h1>
+
+      <!-- Фильтр -->
+      <div class="dropdown mb-3">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="filterDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-funnel-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"
+            />
+          </svg>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+          <li class="dropdown-item filter-option" data-value="all">Все</li>
+          <li class="dropdown-item filter-option" data-value="waiting">Ожидает отправки</li>
+          <li class="dropdown-item filter-option" data-value="transit">В пути</li>
+          <li class="dropdown-item filter-option" data-value="delivered">Доставлен</li>
+        </ul>
+      </div>
+
+      <!-- Таблица -->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Номер груза</th>
+              <th>Название груза</th>
+              <th>Статус</th>
+              <th>Пункт отправления</th>
+              <th>Пункт назначения</th>
+              <th>Дата отправления</th>
+              <th>Действие</th>
+            </tr>
+          </thead>
+          <tbody id="cargoTable"></tbody>
+        </table>
+      </div>
+
+      <!-- Форма добавления нового груза -->
+      <h2 class="mb-3">Добавить новый груз</h2>
+      <form id="cargoForm" class="col-md-4">
+        <div class="mb-2">
+          <label for="cargoName" class="form-label">Название груза</label>
+          <input type="text" id="cargoName" class="form-control" required />
+        </div>
+        <div class="mb-2">
+          <label for="origin" class="form-label">Пункт отправления</label>
+          <select id="origin" class="form-select">
+            <option>Москва</option>
+            <option>Санкт-Петербург</option>
+            <option>Казань</option>
+            <option>Екатеринбург</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="destination" class="form-label">Пункт назначения</label>
+          <select id="destination" class="form-select">
+            <option>Москва</option>
+            <option>Санкт-Петербург</option>
+            <option>Казань</option>
+            <option>Екатеринбург</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="departureDate" class="form-label">Дата отправления</label>
+          <input type="date" id="departureDate" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Добавить груз</button>
+      </form>
+    </div>
+  </body>
+</html>
