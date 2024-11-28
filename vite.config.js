@@ -1,6 +1,7 @@
 const path = require("path");
 
 export default {
+  base: "/ftek-test/",
   root: path.resolve(__dirname, "src"),
   build: {
     outDir: "../dist",
